@@ -1,5 +1,35 @@
 # Claude Instructions for AILANG Development
 
+## 🌿 DEFAULT DEVELOPMENT BRANCH
+
+**ALWAYS use the `dev` branch for development work.**
+
+```bash
+# At the start of EVERY session, ensure you're on dev branch:
+git checkout dev
+git pull origin dev
+
+# Verify you're on the right branch:
+git branch --show-current  # Should show: dev
+```
+
+**Why dev?**
+- Latest code and features are on `dev`
+- `main` may be behind by several versions
+- Prevents reviewing/implementing already-completed work
+- Ensures you see the actual current state
+
+**Before any code review or feature check:**
+```bash
+# 1. Switch to dev
+git checkout dev
+
+# 2. Get latest changes
+git pull origin dev
+
+# 3. Then review/analyze
+```
+
 ## ⚠️ CRITICAL PRINCIPLES
 
 ### 0. NEVER DESTROY LOCAL WORK WITH GIT OPERATIONS
@@ -59,6 +89,7 @@ git fsck --lost-found        # Find orphaned commits
 ```
 
 **Safe alternatives:**
+- ✅ **Start every session on `dev` branch** (see DEFAULT DEVELOPMENT BRANCH section)
 - ✅ Make fixes on current branch, push, let user handle merging
 - ✅ Ask user before ANY branch switching
 - ✅ Create new branches instead of switching to existing ones
